@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 0, 0; /* RGB for red */
+  --background-start-rgb: 0,0,0; /* RGB for black */
+  --background-end-rgb: 0, 0, 0; /* RGB also for black */
+  --background-image-url: url("./Blue And White Modern Canva Banner (1).png"); /* Ensure the path is correct */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255; /* RGB for white, better visibility in dark mode */
+    --background-start-rgb: 0, 0, 0; /* RGB for black */
+    --background-end-rgb: 0, 0, 0; /* RGB for black */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb)); /* Dynamically sets text color */
+  background: 
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0), /* starting transparent */
+      rgb(var(--background-end-rgb)) /* transitioning to black */
+    ),
+    var(--background-image-url); /* Using a CSS variable for the image URL */
+  background-size: cover; /* Ensures the background covers the entire area */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+@layer utilities {
+  /* Ensure your custom utilities are defined here if needed */
+}
