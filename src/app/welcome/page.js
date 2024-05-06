@@ -1,12 +1,11 @@
 // https://docs.metamask.io/guide/ethereum-provider.html#using-the-provider
 "use client"
 import React, { useState } from 'react';
-import { ethers } from "ethers";
 import Link from 'next/link';
 import { contractABI, contractAddress } from '../../../utils/constants';
+import { ethers } from "ethers";
 
-
-const WalletStart = () => {
+const Wallet_meta = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState(null);
     const [connButtonText, setConnButtonText] = useState('Connect to Wallet');
@@ -21,7 +20,7 @@ const WalletStart = () => {
                 setErrorMessage(error.message);
             }
         } else {
-            setErrorMessage('Please install MetaMask browser extension to interact');
+            setErrorMessage('install MetaMask browser extension for interaction');
         }
     };
 
@@ -53,5 +52,5 @@ const WalletStart = () => {
     );
 }
 
-export default WalletStart;
+export default Wallet_meta;
 

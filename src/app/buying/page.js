@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { contractABI, contractAddress } from '../../../utils/constants';
 
-const MarketplaceDisplay = () => {
-    const [items, setItems] = useState([]);
+const Marketplace_fashion = () => {
+    const [f_items, setItems] = useState([]);
 
     useEffect(() => {
         const fetchItems = async () => {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const contract = new ethers.Contract(contractAddress, contractABI, provider);
             const items = await contract.getAllItems();
-            console.log(items);
+            console.log(f_items);
             const itemsFormatted = items.map(item => ({
                 id: item.id.toNumber(),
                 title: item.title,
@@ -28,7 +28,7 @@ const MarketplaceDisplay = () => {
     
     const handleCardClick = (item) => {
         if (!item.sold) {
-            // Using window.location for simplicity; replace with your router's navigation logic if using React Router, Next.js, etc.
+            
             console.log(item?.price);
             window.location.href = `/item_details?title=${encodeURIComponent(item.title)}&imageHash=${encodeURIComponent(item.imageHash)}&price=${encodeURIComponent(item.price)}&sold=${item.sold}&description=${encodeURIComponent(item.description)}&id=${item.id}`;
         }
@@ -41,7 +41,7 @@ const MarketplaceDisplay = () => {
             <h1 className="text-5xl font-Over the Rainbow text-bold text-yellow mb-6 hover:text-yellow-400 transition-colors duration-500">Fab Finds in our Fashion Haven!</h1></div>
             <div class="container mx-auto">
                 <div className="grid grid-cols-3 gap-4">
-                    {items.map((item) => (
+                    {f_items.map((item) => (
                         <div key={item.id} 
                              className={`relative bg-violet-500 rounded-lg shadow-lg p-4${item.sold ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer hover:bg-pink-100'}`}
                              onClick={() => handleCardClick(item)}>
@@ -57,4 +57,4 @@ const MarketplaceDisplay = () => {
     );
 };
 
-export default MarketplaceDisplay;
+export default Marketplace_fashion;
