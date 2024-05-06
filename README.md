@@ -4,6 +4,10 @@ This project is built using Next.js, a powerful React framework, and it has been
 Quick Start Guide
 Running the Development Server
 
+Link for the website
+https://fashionnnn.netlify.app/welcome
+
+
 To get the development environment running, you will need to execute one of the following commands based on your package manager preference. This will start a local development server and will allow you to view the application in your web browser.
 npm run dev
 # or use Yarn
@@ -34,3 +38,4 @@ Deployment
 Using Vercel
 
 For deployment, the Vercel Platform is highly recommended. It offers a seamless deployment process directly from your repository. For a step-by-step guide to deploying your Next.js application, consult the Next.js deployment documentation. Vercel is designed to work exceptionally well with Next.js, ensuring that your application is optimized for production.
+
