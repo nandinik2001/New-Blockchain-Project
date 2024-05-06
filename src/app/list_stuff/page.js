@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { ethers } from 'ethers';
 import { contractABI, contractAddress } from '../../../utils/constants';
+import axios from 'axios';
 
 const Listing_pro = () => {
     const [title, setTitle] = useState('');

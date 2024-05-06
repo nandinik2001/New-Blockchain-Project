@@ -38,10 +38,10 @@ const Wallet_meta = () => {
                             className={`font-bold py-2 px-4 rounded ${defaultAccount ? 'bg-purple-500 hover:bg-purple-400' : 'bg-purple-500 hover:bg-purple-400'} text-white shadow-lg focus:shadow-outline focus:outline-none transition duration-150 ease-in-out`}>
                         Connect To wallet
                     </button>
-                        <Link href="/listingpage" passHref className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded shadow-lg transition duration-150 ease-in-out text-center flex items-center justify-center">
+                        <Link href="/list_stuff" passHref className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded shadow-lg transition duration-150 ease-in-out text-center flex items-center justify-center">
                             List your items here
                         </Link>
-                        <Link href="/buying" passHref className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded shadow-lg transition duration-150 ease-in-out text-center">
+                        <Link href="/item_buy" passHref className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded shadow-lg transition duration-150 ease-in-out text-center">
                         We've got some funky finds for you!!
                         </Link>
                 </div>

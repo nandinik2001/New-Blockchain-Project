@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, Suspense } from 'react';
-import { ethers } from "ethers";
-import { useSearchParams } from "next/navigation";
 import { contractABI, contractAddress } from "../../../utils/constants";
+import { useSearchParams } from "next/navigation";
+import { ethers } from "ethers";
 
-const F_Details = () => {
+const Iteminfo = () => {
     const [isBuying, setIsBuying] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [transact, setTransactionHash]=useState('');
@@ -13,12 +13,12 @@ const F_Details = () => {
   
     const buyItem = async (id, price) => {
         if (!window.ethereum || !window.ethereum.isMetaMask) {
-            setErrorMessage('OOPs! install metamask');
+            setErrorMessage('Err!!! Install Metamask Properly.');
             return;
         }
 
         setIsBuying(true);
-        setButtonText('Still Processing.....');
+        setButtonText('in progress...');
 
         try {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -28,15 +28,15 @@ const F_Details = () => {
 
             const transaction = await contract.buyItem(id, {value:new_price});
             const receipt =await transaction.wait();
-            setTransactionHash(receipt.transact);
+            setTransactionHash(receipt.transacth);
 
             setIsBuying(true);
-            setTimeout(() => window.location.href = '/buying', 3000);  
+            setTimeout(() => window.location.href = '/item_buy', 3000); 
         } catch (error) {
-            console.error('OOPs! there is a problem:', error);
-            setErrorMessage('Transaction failed. Try again guys.');
+            console.error('Transaction failed:', error);
+            setErrorMessage('Please try again.');
             setIsBuying(false);
-            setButtonText('Buy your goods');
+            setButtonText('purchase');
         }
     };
     const SearchParamsComponent =() =>{
@@ -61,7 +61,7 @@ const F_Details = () => {
                 disabled={isBuying}>
                 {buttonText}
             </button>
-            {transact && <p className="text-green-500 text-center mt-2">Successful{transact}</p>}
+            {transact && <p className="text-red-500 text-center mt-2">Success{transact}</p>}
         </React.Fragment>
     );
 };
@@ -81,9 +81,9 @@ return (
             <Suspense fallback={<p>Loading details...</p>}>
                 <SearchParamsComponent />   
             </Suspense>
-            {errorMessage && <p className="text-indigo-500 text-center mt-2">{errorMessage}</p>}
+            {errorMessage && <p className="text-red-500 text-center mt-2">{errorMessage}</p>}
         </div>
 </div>)
 };
 
-export default F_Details;
+export default Iteminfo;
